@@ -145,5 +145,5 @@ control the machine through the API provided by ``phantasy``.
 
 To better present the data, it is recommended to do Python scripting in Jupyter-Notebook.
 
-:ref:`Online modeling >notebooks/va1.ipynb>`
+:ref:`Online modeling <notebooks/va1.ipynb>`
     
