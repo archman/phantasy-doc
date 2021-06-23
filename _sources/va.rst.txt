@@ -130,7 +130,7 @@ useage by `-h` flag.
 GUI
 ^^^
 
-.. image:: ../images/va_launcher.png
+.. image:: ./images/va_launcher.png
     :align: center
     :width: 600px
 
