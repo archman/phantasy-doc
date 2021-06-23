@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>&lt;no title&gt; &mdash; phantasy-doc 0.0.1 documentation</title>
+  <title>Online Modeling &mdash; phantasy-doc 0.0.1 documentation</title>
   
 
   
@@ -93,6 +93,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../va.html">Virtual Accelerator</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Notebooks</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Online Modeling</a></li>
+</ul>
 
             
           
@@ -140,7 +144,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Online Modeling</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -429,12 +433,14 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
+<div class="section" id="Online-Modeling">
+<h1>Online Modeling<a class="headerlink" href="#Online-Modeling" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from phantasy import MachinePortal
+<span></span><span class="kn">from</span> <span class="nn">phantasy</span> <span class="kn">import</span> <span class="n">MachinePortal</span>
 </pre></div>
 </div>
 </div>
@@ -443,7 +449,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>mp = MachinePortal(&quot;ARIS&quot;, &quot;F1&quot;)
+<span></span><span class="n">mp</span> <span class="o">=</span> <span class="n">MachinePortal</span><span class="p">(</span><span class="s2">&quot;ARIS&quot;</span><span class="p">,</span> <span class="s2">&quot;F1&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -470,7 +476,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>lat = mp.work_lattice_conf
+<span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">work_lattice_conf</span>
 </pre></div>
 </div>
 </div>
@@ -479,7 +485,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>lat
+<span></span><span class="n">lat</span>
 </pre></div>
 </div>
 </div>
@@ -810,7 +816,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>q1 = lat[0]
+<span></span><span class="n">q1</span> <span class="o">=</span> <span class="n">lat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -819,7 +825,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>q1.B2
+<span></span><span class="n">q1</span><span class="o">.</span><span class="n">B2</span>
 </pre></div>
 </div>
 </div>
@@ -837,7 +843,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>lat.sync_settings()
+<span></span><span class="n">lat</span><span class="o">.</span><span class="n">sync_settings</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -854,7 +860,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>latfile, fm_online = lat.run()
+<span></span><span class="n">latfile</span><span class="p">,</span> <span class="n">fm_online</span> <span class="o">=</span> <span class="n">lat</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -872,7 +878,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>latfile
+<span></span><span class="n">latfile</span>
 </pre></div>
 </div>
 </div>
@@ -890,7 +896,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from flame_utils import hplot
+<span></span><span class="kn">from</span> <span class="nn">flame_utils</span> <span class="kn">import</span> <span class="n">hplot</span>
 </pre></div>
 </div>
 </div>
@@ -899,7 +905,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>hplot(&#39;xrms&#39;, &#39;yrms&#39;, machine=fm_online)
+<span></span><span class="n">hplot</span><span class="p">(</span><span class="s1">&#39;xrms&#39;</span><span class="p">,</span> <span class="s1">&#39;yrms&#39;</span><span class="p">,</span> <span class="n">machine</span><span class="o">=</span><span class="n">fm_online</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -907,7 +913,8 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_va1_10_0.png" class="no-scaled-link" src="../_images/notebooks_va1_10_0.png" style="width: 390px; height: 261px;" />
+<img alt="../_images/notebooks_va1_11_0.png" class="no-scaled-link" src="../_images/notebooks_va1_11_0.png" style="width: 390px; height: 261px;" />
+</div>
 </div>
 </div>
 
