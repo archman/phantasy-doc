@@ -89,7 +89,16 @@
               <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Virtual Accelerator</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-set-up">How to Set Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-set-up">How to Set Up</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-phantasy">Install PHANTASY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-files">Configuration Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#start-virtual-accelerator">Start Virtual Accelerator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cli">CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gui">GUI</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -161,10 +170,112 @@
             
   <div class="section" id="virtual-accelerator">
 <h1>Virtual Accelerator<a class="headerlink" href="#virtual-accelerator" title="Permalink to this headline">¶</a></h1>
+<p>Virtual accelerator system is driven by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> framework with a set of configuration files,
+which describe the layout of the accelerator beamline, the controls process varibles that are
+used to establish EPICS IOC environment, and norminal device settings.</p>
+<p>The virtual accelerator could be started with the tools provided by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code>, and also could
+be started from a GUI app provided by <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">phantasy</span></code> also provides the libraries which enable the OOP scripting against the virtual
+accelerator in any Python terminals, e.g. Jupyter-Notebook, to investigate and control the machine,
+build tuning algorithms. <code class="docutils literal notranslate"><span class="pre">phantasy-ui</span></code>, together with <code class="docutils literal notranslate"><span class="pre">mpl4qt</span></code>, provide useful templates and
+libraries for efficient high-level applications (HLAs) development.</p>
 <div class="section" id="how-to-set-up">
 <h2>How to Set Up<a class="headerlink" href="#how-to-set-up" title="Permalink to this headline">¶</a></h2>
 <p>This section is for the development of machine configuration files, in order to set
 up a new virtual accelerator with FLAME as the similation engine.</p>
+<div class="section" id="install-phantasy">
+<h3>Install PHANTASY<a class="headerlink" href="#install-phantasy" title="Permalink to this headline">¶</a></h3>
+<p>Install or update <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> in your VirtualBox, which should be running appliance version at
+least v7, i.e. develop-vmph0-v7.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install python3-phantasy python3-phantasy-apps python3-phantasy-ui
+sudo apt install python3-phantasy-machines
+</pre></div>
+</div>
+<p>As the package names imply, the distribution of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> includes both framework software and
+the ready-to-use HLAs. The distributed machine configuration files make HLAs machine agnostic.</p>
+</div>
+<div class="section" id="configuration-files">
+<h3>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
+<p>The default machine configuration files are located at <cite>/usr/lib/phantasy-machines</cite> directory,
+for developing new configuration files, pointing to user-customized location is supported.</p>
+<p>By defined environmental variable <code class="docutils literal notranslate"><span class="pre">PHANTASY_CONFIG_DIR</span></code> in current Terminal session
+(temporary) or in user’s <cite>.bashrc</cite> file (persistent).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PHANTASY_CONFIG_DIR</span><span class="o">=</span>&lt;directory <span class="k">for</span> machine configurations&gt;
+</pre></div>
+</div>
+<p>For example, the following snippet initializes the directory which contains the configuration files
+under development the home directory of user <cite>devuser</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span>
+$ <span class="nb">pwd</span>
+/home/devuser
+$ git clone https://stash.frib.msu.edu/scm/phyapp/phantasy-machines.git -b -devel
+</pre></div>
+</div>
+<p>Then the way to set the <cite>PHANTASY_CONFIG_DIR</cite> is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s1">&#39;export PHANTASY_CONFIG_DIR=/home/devuser/phantasy-machines&#39;</span> &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+<p>All the further content changes to <cite>/home/devuser/phantasy-machines</cite> directory should be tested.</p>
+</div>
+</div>
+<div class="section" id="start-virtual-accelerator">
+<h2>Start Virtual Accelerator<a class="headerlink" href="#start-virtual-accelerator" title="Permalink to this headline">¶</a></h2>
+<p>There’re two ways to start the virtual accelerator, through CLI or GUI, which is from
+<code class="docutils literal notranslate"><span class="pre">flame-vastart</span></code> tool of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> and <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> app of <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
+<div class="section" id="cli">
+<h3>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
+<p>The command line to start ARIS/F1 virtual accelerator is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ phytool flame-vastart --mach ARIS --subm F1
+</pre></div>
+</div>
+<p>The usage of <cite>flame-vastart</cite> tool could be reached by <cite>phytool flame-vastart -h</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ phytool flame-vastart -h
+usage: phytool flame-vastart <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v <span class="o">[</span>VERBOSITY<span class="o">]]</span> <span class="o">[</span>-l <span class="o">[</span>LOCALONLY<span class="o">]]</span>
+                         <span class="o">[</span>--mach MACHINE<span class="o">]</span> <span class="o">[</span>--subm SUBMACH<span class="o">]</span>
+                         <span class="o">[</span>--layout LAYOUTPATH<span class="o">]</span> <span class="o">[</span>--settings SETTINGSPATH<span class="o">]</span>
+                         <span class="o">[</span>--config CONFIGPATH<span class="o">]</span> <span class="o">[</span>--cfsurl CFSURL<span class="o">]</span>
+                         <span class="o">[</span>--cfstag CFSTAG<span class="o">]</span> <span class="o">[</span>--start START<span class="o">]</span> <span class="o">[</span>--end END<span class="o">]</span>
+                         <span class="o">[</span>--data DATAPATH<span class="o">]</span> <span class="o">[</span>--work WORKPATH<span class="o">]</span>
+                         <span class="o">[</span>--pv-prefix PVPREFIX<span class="o">]</span> <span class="o">[</span>--pv-suffix PVSUFFIX<span class="o">]</span>
+                         <span class="o">[</span>--noise NOISE<span class="o">]</span> <span class="o">[</span>--rep-rate REPRATE<span class="o">]</span>
+
+Start the virtual accelerator using FLAME simulation
+
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -v <span class="o">[</span>VERBOSITY<span class="o">]</span>        <span class="nb">set</span> the amount of output
+  -l <span class="o">[</span>LOCALONLY<span class="o">]</span>        run IOC localhost only
+  --mach MACHINE        name of machine or path of machine directory
+  --subm SUBMACH        name of segment
+  --layout LAYOUTPATH   path of accelerator layout file <span class="o">(</span>.csv<span class="o">)</span>
+  --settings SETTINGSPATH
+                        path to accelerator settings file <span class="o">(</span>.json<span class="o">)</span>
+  --config CONFIGPATH   path to accelerator configuration file <span class="o">(</span>.ini<span class="o">)</span>
+  --cfsurl CFSURL       url of channel finder service or <span class="nb">local</span> sqlite file
+  --cfstag CFSTAG       tag to query <span class="k">for</span> channels
+  --start START         name of accelerator element to start processing
+  --end END             name of accelerator element to end processing
+  --data DATAPATH       path to directory with FLAME data
+  --work WORKPATH       path to directory <span class="k">for</span> executing FLAME
+  --pv-prefix PVPREFIX  string prefix to each PV name
+  --pv-suffix PVSUFFIX  string suffix only to noise/mps/status PVs
+  --noise NOISE         noise level of device readback
+  --rep-rate REPRATE    repetition rate of virtual accelerator
+</pre></div>
+</div>
+<p>Typical optional arguments could be used is <cite>–noise</cite> (default is 0.001), and
+<cite>–rep-rate</cite> (default is 1). If neither <code class="docutils literal notranslate"><span class="pre">--pv-prefix</span></code> nor <code class="docutils literal notranslate"><span class="pre">--pv-suffix</span></code> is defined,
+the PV names for noise and rep-rate is <code class="docutils literal notranslate"><span class="pre">VA:SVR:NOISE</span></code> and <code class="docutils literal notranslate"><span class="pre">VA:SVR:RATE</span></code>, respectively.
+One can use EPICS commands <code class="docutils literal notranslate"><span class="pre">caget</span></code> and <code class="docutils literal notranslate"><span class="pre">caput</span></code> to get and set the value, see the command
+useage by <cite>-h</cite> flag.</p>
+</div>
+<div class="section" id="gui">
+<h3>GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../images/va_launcher.png"><img alt="../images/va_launcher.png" class="align-center" src="../images/va_launcher.png" style="width: 600px;" /></a>
+<p>Set the names of machine and segment as the user interface hints, as well as for other options.
+The noise level and rep-rate could be also be easily changed.</p>
+</div>
 </div>
 </div>
 
