@@ -12,6 +12,12 @@ Welcome to phantasy-doc's documentation!
    
    va
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Notebooks
+
+   notebooks/va1
+
    
     
 
