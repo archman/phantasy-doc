@@ -33,6 +33,7 @@ release = '0.0.1'
 # ones.
 extensions = [
     'nbsphinx',
+    'IPython.sphinxext.ipython_console_highlighting',
 ]
 
 # nbsphinx config
