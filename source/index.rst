@@ -3,12 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to phantasy-doc's documentation!
-========================================
+
+High-level Application Documentation
+====================================
+
+This is the documentation site for ``phantasy`` based software and application on accelerator.
 
 .. toctree::
    :maxdepth: 2
-   :caption: User Guide
+   :caption: References
    
    va
 
@@ -17,9 +20,6 @@ Welcome to phantasy-doc's documentation!
    :caption: Notebooks
 
    notebooks/va1
-
-   
-    
 
 
 
