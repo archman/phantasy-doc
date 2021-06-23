@@ -34,6 +34,7 @@ release = '0.0.1'
 extensions = [
     'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
+    'sphinx.ext.autosectionlabel',
 ]
 
 # nbsphinx config
