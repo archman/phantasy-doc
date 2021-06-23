@@ -135,7 +135,15 @@ GUI
     :width: 600px
 
 Set the names of machine and segment as the user interface hints, as well as for other options.
-The noise level and rep-rate could be also be easily changed.
+The noise level and rep-rate could be also be easily adjusted through the UI controls.
 
+Scripting
+---------
 
+This section shows how to communicate with the virtual accelerator, to get the machine status and
+control the machine through the API provided by ``phantasy``.
 
+To better present the data, it is recommended to do Python scripting in Jupyter-Notebook.
+
+:ref:`notebooks/va1.ipynb`
+    
