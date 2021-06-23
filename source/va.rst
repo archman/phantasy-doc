@@ -144,6 +144,5 @@ This section shows how to communicate with the virtual accelerator, to get the m
 control the machine through the API provided by ``phantasy``.
 
 To better present the data, it is recommended to do Python scripting in Jupyter-Notebook.
-The follow link directs to the sample notebook to work with virtual accelerator, e.g. do online
-simulation, :ref:`Online modeling`.
-    
+:ref:`The linked notebook<Online modeling>` shows how to work with virtual accelerator to do
+online simulation.
