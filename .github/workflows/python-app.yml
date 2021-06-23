@@ -35,7 +35,8 @@ jobs:
 #        pytest -vs
     - name: Build documentation
       run: |
-        pip install sphinx sphinx_rtd_theme nbsphinx ipython pandoc
+        sudo apt install pandoc
+        pip install sphinx sphinx_rtd_theme nbsphinx ipython
         make html
         ! [ -e build/html/.nojekyll ] && touch build/html/.nojekyll
     - name: Publish documentation
