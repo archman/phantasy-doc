@@ -137,7 +137,7 @@ start the HLA for VA.
     :width: 600px
 
 Select/edit the names of machine and segment, and other options that are available.
-The noise level and rep-rate could be also be easily adjusted through the UI controls.
+The noise level and rep-rate could also be easily adjusted through the UI controls.
 
 Scripting
 ---------
