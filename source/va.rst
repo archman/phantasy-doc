@@ -30,6 +30,8 @@ Install or update ``phantasy`` in your VirtualBox. It should already be installe
     sudo apt install python3-phantasy python3-phantasy-apps python3-phantasy-ui
     sudo apt install phantasy-machines
 
+If already installed, it is recommended to do an update via ``sudo apt update && sudo apt upgrade``.
+
 As the package names imply, the distribution of ``phantasy`` includes both framework software and
 the ready-to-use HLAs. The distributed machine configuration files make HLAs machine agnostic.
 
