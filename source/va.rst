@@ -2,35 +2,32 @@
 Virtual Accelerator
 ===================
 
-Virtual accelerator system is driven by ``phantasy`` framework with a set of configuration files,
-which describe the layout of the accelerator beamline, the controls process varibles that are
-used to establish EPICS IOC environment, and norminal device settings.
+The virtual accelerator (VA) application is driven by the framework ``phantasy`` using a set of configuration files,
+which describe the accelerator beamline layout, controls process variables
+used to establish EPICS IOC environment, and nominal device settings.
 
-The virtual accelerator could be started with the tools provided by ``phantasy``, and also could
-be started from a GUI app provided by ``phantasy-apps``.
+VA can be launched from a terminal by using ``phantasy`` commands or via a ``phantasy-apps`` GUI application.
 
-``phantasy`` also provides the libraries which enable the OOP scripting against the virtual
-accelerator in any Python terminals, e.g. Jupyter-Notebook, to investigate and control the machine,
+The ``phantasy`` code system also provides libraries that enable OOP scripting against the virtual
+accelerator in any Python terminal, e.g. Jupyter-Notebook, to investigate and control the machine, such as by
 build tuning algorithms. ``phantasy-ui``, together with ``mpl4qt``, provide useful templates and
-libraries for efficient high-level applications (HLAs) development.
+libraries for efficient development of high-level applications (HLAs).
 
 How to Set Up
 -------------
 
-This section is for the development of machine configuration files, in order to set
-up a new virtual accelerator with FLAME as the similation engine.
+What follows is a description for setting up the code system and configuration files. Currently, it allows the application FLAME to be implemented as the simulation engine.
 
-Install PHANTASY
+Installing PHANTASY
 ^^^^^^^^^^^^^^^^
 
-Install or update ``phantasy`` in your VirtualBox, which should be running appliance version at
-least v7, i.e. develop-vmph0-v7.
+Install or update ``phantasy`` in your VirtualBox. It should already be installed on appliance version v7 or later (e.g. develop-vmph0-v7).
 
 .. code-block:: bash
 
     sudo apt update
     sudo apt install python3-phantasy python3-phantasy-apps python3-phantasy-ui
-    sudo apt install python3-phantasy-machines
+    sudo apt install phantasy-machines
 
 As the package names imply, the distribution of ``phantasy`` includes both framework software and
 the ready-to-use HLAs. The distributed machine configuration files make HLAs machine agnostic.
@@ -38,53 +35,52 @@ the ready-to-use HLAs. The distributed machine configuration files make HLAs mac
 Configuration Files
 ^^^^^^^^^^^^^^^^^^^
 
-The default machine configuration files are located at `/usr/lib/phantasy-machines` directory,
-for developing new configuration files, pointing to user-customized location is supported.
+The default machine configuration files are installed at directory  `/usr/lib/phantasy-machines`. Configuration files can be updated or added there. Pointing to user-customized locations is supported.
 
-By defined environmental variable ``PHANTASY_CONFIG_DIR`` in current Terminal session
+Define the environmental variable ``PHANTASY_CONFIG_DIR`` in the current Terminal session
 (temporary) or in user's `.bashrc` file (persistent).
 
 .. code-block:: bash
 
-    export PHANTASY_CONFIG_DIR=<directory for machine configurations>
+    export PHANTASY_CONFIG_DIR=<directory for machine configuration files>
 
 
 For example, the following snippet initializes the directory which contains the configuration files
-under development the home directory of user `devuser`.
+under development at a user's home directory `devuser`.
 
 .. code-block:: bash
 
-    $ cd
+    $ cd ~
     $ pwd
     /home/devuser
-    $ git clone https://stash.frib.msu.edu/scm/phyapp/phantasy-machines.git -b -devel
+    $ git clone https://stash.frib.msu.edu/scm/phyapp/phantasy-machines.git -b devel
 
-Then the way to set the `PHANTASY_CONFIG_DIR` is:
+Consequently, the way to persistently set the `PHANTASY_CONFIG_DIR` is:
 
 .. code-block:: bash
 
     $ echo 'export PHANTASY_CONFIG_DIR=/home/devuser/phantasy-machines' >> ~/.bashrc
 
-All the further content changes to `/home/devuser/phantasy-machines` directory should be tested.
+All changes within the directory `/home/devuser/phantasy-machines` should then be tested.
 
 
-Start Virtual Accelerator
+Starting Virtual Accelerator
 -------------------------
 
-There're two ways to start the virtual accelerator, through CLI or GUI, which is from
-``flame-vastart`` tool of ``phantasy`` and ``va_launcher`` app of ``phantasy-apps``.
+There are two ways (CLI and GUI) to start the VA. One is using the ``flame-vastart`` tool of ``phantasy``.
+The other is via the ``va_launcher`` HLA of ``phantasy-apps``.
 
 
 CLI
 ^^^
 
-The command line to start ARIS/F1 virtual accelerator is:
+The following is the command line to use for the case of starting the VA for a beamline section referred to as ARIS/F1 (i.e. machine/segment):
 
 .. code-block:: bash
 
     $ phytool flame-vastart --mach ARIS --subm F1
 
-The usage of `flame-vastart` tool could be reached by `phytool flame-vastart -h`:
+The use description of `flame-vastart` tool is called using `phytool flame-vastart -h`:
 
 .. code-block:: bash
 
@@ -121,10 +117,10 @@ The usage of `flame-vastart` tool could be reached by `phytool flame-vastart -h`
       --noise NOISE         noise level of device readback
       --rep-rate REPRATE    repetition rate of virtual accelerator
 
-Typical optional arguments could be used is `--noise` (default is 0.001), and
-`--rep-rate` (default is 1). If neither ``--pv-prefix`` nor ``--pv-suffix`` is defined,
-the PV names for noise and rep-rate is ``VA:SVR:NOISE`` and ``VA:SVR:RATE``, respectively.
-One can use EPICS commands ``caget`` and ``caput`` to get and set the value, see the command
+Typical optional arguments are `--noise` (default is 0.001), and
+`--rep-rate` (default is 1 Hz). If neither ``--pv-prefix`` nor ``--pv-suffix`` is defined,
+then default PV names for noise and rep-rate is ``VA:SVR:NOISE`` and ``VA:SVR:RATE``, respectively.
+One can use EPICS commands ``caget`` and ``caput`` to get and set the value; see the command
 useage by `-h` flag.
 
 GUI
@@ -134,15 +130,12 @@ GUI
     :align: center
     :width: 600px
 
-Set the names of machine and segment as the user interface hints, as well as for other options.
+Select the names of machine and segment, and other options that are available.
 The noise level and rep-rate could be also be easily adjusted through the UI controls.
 
 Scripting
 ---------
 
-This section shows how to communicate with the virtual accelerator, to get the machine status and
-control the machine through the API provided by ``phantasy``.
-
-To better present the data, it is recommended to do Python scripting in Jupyter-Notebook.
-:ref:`The linked notebook<Online modeling>` shows how to work with virtual accelerator to do
-online simulation.
+This section shows how to use the API provide by ``phantasy`` to read and set the values in the OOP way.
+This allows one to use Python scripts to monitor the VA status and apply desired changes, and do online simulation.
+It is recommended to use Jupyter-Notebook, :ref:`the linked notebook<Online modeling>` as shown here for an example.
