@@ -70,8 +70,8 @@ All changes within the directory `/home/devuser/phantasy-machines` should then b
 Starting Virtual Accelerator
 ----------------------------
 
-There are two ways (CLI and GUI) to start the VA. One is using the ``flame-vastart`` tool of ``phantasy``.
-The other is via the ``va_launcher`` HLA of ``phantasy-apps``.
+There are two ways, i.e. through command line interface (CLI) and graphical user interface (GUI) to start the VA.
+One is using the ``flame-vastart`` tool of ``phantasy``, the other is via the ``va_launcher`` HLA of ``phantasy-apps``.
 
 
 CLI
@@ -129,12 +129,15 @@ useage by `-h` flag.
 GUI
 ^^^
 
+For development, one can execute ``va_launcher`` command in the Terminal to
+start the HLA for VA.
+
 .. image:: ./images/va_launcher.png
     :align: center
     :width: 600px
 
-Select the names of machine and segment, and other options that are available.
-The noise level and rep-rate could be also be easily adjusted through the UI controls.
+Select/edit the names of machine and segment, and other options that are available.
+The noise level and rep-rate could also be easily adjusted through the UI controls.
 
 Scripting
 ---------
@@ -142,3 +145,6 @@ Scripting
 This section shows how to use the API provide by ``phantasy`` to read and set the values in the OOP way.
 This allows one to use Python scripts to monitor the VA status and apply desired changes, and do online simulation.
 It is recommended to use Jupyter-Notebook, :ref:`the linked notebook<Online modeling>` as shown here for an example.
+
+Other ``phantasy`` based HLAs also could work with the VA by connecting to
+the right machine/segment.
