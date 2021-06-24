@@ -8,7 +8,7 @@ used to establish EPICS IOC environment, and nominal device settings.
 
 VA can be launched from a terminal by using ``phantasy`` commands or via a ``phantasy-apps`` GUI application.
 
-The ``phantasy`` code system also provides libraries that enable OOP scripting against the virtual
+The ``phantasy`` framework also provides libraries that enable OOP scripting against the virtual
 accelerator in any Python terminal, e.g. Jupyter-Notebook, to investigate and control the machine, such as by
 build tuning algorithms. ``phantasy-ui``, together with ``mpl4qt``, provide useful templates and
 libraries for efficient development of high-level applications (HLAs).
@@ -16,10 +16,11 @@ libraries for efficient development of high-level applications (HLAs).
 How to Set Up
 -------------
 
-What follows is a description for setting up the code system and configuration files. Currently, it allows the application FLAME to be implemented as the simulation engine.
+What follows is a description for setting up the system environment for developing
+VA configuration files. Currently, FLAME is the supported simulation engine.
 
 Installing PHANTASY
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 Install or update ``phantasy`` in your VirtualBox. It should already be installed on appliance version v7 or later (e.g. develop-vmph0-v7).
 
@@ -35,7 +36,8 @@ the ready-to-use HLAs. The distributed machine configuration files make HLAs mac
 Configuration Files
 ^^^^^^^^^^^^^^^^^^^
 
-The default machine configuration files are installed at directory  `/usr/lib/phantasy-machines`. Configuration files can be updated or added there. Pointing to user-customized locations is supported.
+The default machine configuration files are installed at directory  `/usr/lib/phantasy-machines`.
+Pointing to user-customized locations is supported for local development.
 
 Define the environmental variable ``PHANTASY_CONFIG_DIR`` in the current Terminal session
 (temporary) or in user's `.bashrc` file (persistent).
@@ -43,7 +45,6 @@ Define the environmental variable ``PHANTASY_CONFIG_DIR`` in the current Termina
 .. code-block:: bash
 
     export PHANTASY_CONFIG_DIR=<directory for machine configuration files>
-
 
 For example, the following snippet initializes the directory which contains the configuration files
 under development at a user's home directory `devuser`.
@@ -65,7 +66,7 @@ All changes within the directory `/home/devuser/phantasy-machines` should then b
 
 
 Starting Virtual Accelerator
--------------------------
+----------------------------
 
 There are two ways (CLI and GUI) to start the VA. One is using the ``flame-vastart`` tool of ``phantasy``.
 The other is via the ``va_launcher`` HLA of ``phantasy-apps``.

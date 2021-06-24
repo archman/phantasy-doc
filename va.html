@@ -205,13 +205,14 @@
 which describe the accelerator beamline layout, controls process variables
 used to establish EPICS IOC environment, and nominal device settings.</p>
 <p>VA can be launched from a terminal by using <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> commands or via a <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code> GUI application.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> code system also provides libraries that enable OOP scripting against the virtual
+<p>The <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> framework also provides libraries that enable OOP scripting against the virtual
 accelerator in any Python terminal, e.g. Jupyter-Notebook, to investigate and control the machine, such as by
 build tuning algorithms. <code class="docutils literal notranslate"><span class="pre">phantasy-ui</span></code>, together with <code class="docutils literal notranslate"><span class="pre">mpl4qt</span></code>, provide useful templates and
 libraries for efficient development of high-level applications (HLAs).</p>
 <div class="section" id="how-to-set-up">
 <h2>How to Set Up<a class="headerlink" href="#how-to-set-up" title="Permalink to this headline">¶</a></h2>
-<p>What follows is a description for setting up the code system and configuration files. Currently, it allows the application FLAME to be implemented as the simulation engine.</p>
+<p>What follows is a description for setting up the system environment for developing
+VA configuration files. Currently, FLAME is the supported simulation engine.</p>
 <div class="section" id="installing-phantasy">
 <h3>Installing PHANTASY<a class="headerlink" href="#installing-phantasy" title="Permalink to this headline">¶</a></h3>
 <p>Install or update <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> in your VirtualBox. It should already be installed on appliance version v7 or later (e.g. develop-vmph0-v7).</p>
@@ -225,7 +226,8 @@ the ready-to-use HLAs. The distributed machine configuration files make HLAs mac
 </div>
 <div class="section" id="configuration-files">
 <h3>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
-<p>The default machine configuration files are installed at directory  <cite>/usr/lib/phantasy-machines</cite>. Configuration files can be updated or added there. Pointing to user-customized locations is supported.</p>
+<p>The default machine configuration files are installed at directory  <cite>/usr/lib/phantasy-machines</cite>.
+Pointing to user-customized locations is supported for local development.</p>
 <p>Define the environmental variable <code class="docutils literal notranslate"><span class="pre">PHANTASY_CONFIG_DIR</span></code> in the current Terminal session
 (temporary) or in user’s <cite>.bashrc</cite> file (persistent).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PHANTASY_CONFIG_DIR</span><span class="o">=</span>&lt;directory <span class="k">for</span> machine configuration files&gt;
