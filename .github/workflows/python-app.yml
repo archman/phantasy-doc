@@ -36,7 +36,7 @@ jobs:
     - name: Build documentation
       run: |
         sudo apt install pandoc
-        pip install sphinx sphinx_rtd_theme nbsphinx ipython
+        pip install -r requirements-doc.txt
         make html
         ! [ -e build/html/.nojekyll ] && touch build/html/.nojekyll
     - name: Publish documentation
