@@ -92,11 +92,11 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Virtual Accelerator</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-set-up">How to Set Up</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install-phantasy">Install PHANTASY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-phantasy">Installing PHANTASY</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-files">Configuration Files</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#start-virtual-accelerator">Start Virtual Accelerator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#starting-virtual-accelerator">Starting Virtual Accelerator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cli">CLI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gui">GUI</a></li>
 </ul>
@@ -201,26 +201,23 @@
 </style>
 <div class="section" id="virtual-accelerator">
 <h1>Virtual Accelerator<a class="headerlink" href="#virtual-accelerator" title="Permalink to this headline">¶</a></h1>
-<p>Virtual accelerator system is driven by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> framework with a set of configuration files,
-which describe the layout of the accelerator beamline, the controls process varibles that are
-used to establish EPICS IOC environment, and norminal device settings.</p>
-<p>The virtual accelerator could be started with the tools provided by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code>, and also could
-be started from a GUI app provided by <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">phantasy</span></code> also provides the libraries which enable the OOP scripting against the virtual
-accelerator in any Python terminals, e.g. Jupyter-Notebook, to investigate and control the machine,
+<p>The virtual accelerator (VA) application is driven by the framework <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> using a set of configuration files,
+which describe the accelerator beamline layout, controls process variables
+used to establish EPICS IOC environment, and nominal device settings.</p>
+<p>VA can be launched from a terminal by using <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> commands or via a <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code> GUI application.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> code system also provides libraries that enable OOP scripting against the virtual
+accelerator in any Python terminal, e.g. Jupyter-Notebook, to investigate and control the machine, such as by
 build tuning algorithms. <code class="docutils literal notranslate"><span class="pre">phantasy-ui</span></code>, together with <code class="docutils literal notranslate"><span class="pre">mpl4qt</span></code>, provide useful templates and
-libraries for efficient high-level applications (HLAs) development.</p>
+libraries for efficient development of high-level applications (HLAs).</p>
 <div class="section" id="how-to-set-up">
 <h2>How to Set Up<a class="headerlink" href="#how-to-set-up" title="Permalink to this headline">¶</a></h2>
-<p>This section is for the development of machine configuration files, in order to set
-up a new virtual accelerator with FLAME as the similation engine.</p>
-<div class="section" id="install-phantasy">
-<h3>Install PHANTASY<a class="headerlink" href="#install-phantasy" title="Permalink to this headline">¶</a></h3>
-<p>Install or update <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> in your VirtualBox, which should be running appliance version at
-least v7, i.e. develop-vmph0-v7.</p>
+<p>What follows is a description for setting up the code system and configuration files. Currently, it allows the application FLAME to be implemented as the simulation engine.</p>
+<div class="section" id="installing-phantasy">
+<h3>Installing PHANTASY<a class="headerlink" href="#installing-phantasy" title="Permalink to this headline">¶</a></h3>
+<p>Install or update <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> in your VirtualBox. It should already be installed on appliance version v7 or later (e.g. develop-vmph0-v7).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
 sudo apt install python3-phantasy python3-phantasy-apps python3-phantasy-ui
-sudo apt install python3-phantasy-machines
+sudo apt install phantasy-machines
 </pre></div>
 </div>
 <p>As the package names imply, the distribution of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> includes both framework software and
@@ -228,39 +225,38 @@ the ready-to-use HLAs. The distributed machine configuration files make HLAs mac
 </div>
 <div class="section" id="configuration-files">
 <h3>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
-<p>The default machine configuration files are located at <cite>/usr/lib/phantasy-machines</cite> directory,
-for developing new configuration files, pointing to user-customized location is supported.</p>
-<p>By defined environmental variable <code class="docutils literal notranslate"><span class="pre">PHANTASY_CONFIG_DIR</span></code> in current Terminal session
+<p>The default machine configuration files are installed at directory  <cite>/usr/lib/phantasy-machines</cite>. Configuration files can be updated or added there. Pointing to user-customized locations is supported.</p>
+<p>Define the environmental variable <code class="docutils literal notranslate"><span class="pre">PHANTASY_CONFIG_DIR</span></code> in the current Terminal session
 (temporary) or in user’s <cite>.bashrc</cite> file (persistent).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PHANTASY_CONFIG_DIR</span><span class="o">=</span>&lt;directory <span class="k">for</span> machine configurations&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PHANTASY_CONFIG_DIR</span><span class="o">=</span>&lt;directory <span class="k">for</span> machine configuration files&gt;
 </pre></div>
 </div>
 <p>For example, the following snippet initializes the directory which contains the configuration files
-under development the home directory of user <cite>devuser</cite>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span>
+under development at a user’s home directory <cite>devuser</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
 $ <span class="nb">pwd</span>
 /home/devuser
-$ git clone https://stash.frib.msu.edu/scm/phyapp/phantasy-machines.git -b -devel
+$ git clone https://stash.frib.msu.edu/scm/phyapp/phantasy-machines.git -b devel
 </pre></div>
 </div>
-<p>Then the way to set the <cite>PHANTASY_CONFIG_DIR</cite> is:</p>
+<p>Consequently, the way to persistently set the <cite>PHANTASY_CONFIG_DIR</cite> is:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s1">&#39;export PHANTASY_CONFIG_DIR=/home/devuser/phantasy-machines&#39;</span> &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
-<p>All the further content changes to <cite>/home/devuser/phantasy-machines</cite> directory should be tested.</p>
+<p>All changes within the directory <cite>/home/devuser/phantasy-machines</cite> should then be tested.</p>
 </div>
 </div>
-<div class="section" id="start-virtual-accelerator">
-<h2>Start Virtual Accelerator<a class="headerlink" href="#start-virtual-accelerator" title="Permalink to this headline">¶</a></h2>
-<p>There’re two ways to start the virtual accelerator, through CLI or GUI, which is from
-<code class="docutils literal notranslate"><span class="pre">flame-vastart</span></code> tool of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> and <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> app of <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
+<div class="section" id="starting-virtual-accelerator">
+<h2>Starting Virtual Accelerator<a class="headerlink" href="#starting-virtual-accelerator" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways (CLI and GUI) to start the VA. One is using the <code class="docutils literal notranslate"><span class="pre">flame-vastart</span></code> tool of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code>.
+The other is via the <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> HLA of <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
 <div class="section" id="cli">
 <h3>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
-<p>The command line to start ARIS/F1 virtual accelerator is:</p>
+<p>The following is the command line to use for the case of starting the VA for a beamline section referred to as ARIS/F1 (i.e. machine/segment):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ phytool flame-vastart --mach ARIS --subm F1
 </pre></div>
 </div>
-<p>The usage of <cite>flame-vastart</cite> tool could be reached by <cite>phytool flame-vastart -h</cite>:</p>
+<p>The use description of <cite>flame-vastart</cite> tool is called using <cite>phytool flame-vastart -h</cite>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ phytool flame-vastart -h
 usage: phytool flame-vastart <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v <span class="o">[</span>VERBOSITY<span class="o">]]</span> <span class="o">[</span>-l <span class="o">[</span>LOCALONLY<span class="o">]]</span>
                          <span class="o">[</span>--mach MACHINE<span class="o">]</span> <span class="o">[</span>--subm SUBMACH<span class="o">]</span>
@@ -295,26 +291,24 @@ optional arguments:
   --rep-rate REPRATE    repetition rate of virtual accelerator
 </pre></div>
 </div>
-<p>Typical optional arguments could be used is <cite>–noise</cite> (default is 0.001), and
-<cite>–rep-rate</cite> (default is 1). If neither <code class="docutils literal notranslate"><span class="pre">--pv-prefix</span></code> nor <code class="docutils literal notranslate"><span class="pre">--pv-suffix</span></code> is defined,
-the PV names for noise and rep-rate is <code class="docutils literal notranslate"><span class="pre">VA:SVR:NOISE</span></code> and <code class="docutils literal notranslate"><span class="pre">VA:SVR:RATE</span></code>, respectively.
-One can use EPICS commands <code class="docutils literal notranslate"><span class="pre">caget</span></code> and <code class="docutils literal notranslate"><span class="pre">caput</span></code> to get and set the value, see the command
+<p>Typical optional arguments are <cite>–noise</cite> (default is 0.001), and
+<cite>–rep-rate</cite> (default is 1 Hz). If neither <code class="docutils literal notranslate"><span class="pre">--pv-prefix</span></code> nor <code class="docutils literal notranslate"><span class="pre">--pv-suffix</span></code> is defined,
+then default PV names for noise and rep-rate is <code class="docutils literal notranslate"><span class="pre">VA:SVR:NOISE</span></code> and <code class="docutils literal notranslate"><span class="pre">VA:SVR:RATE</span></code>, respectively.
+One can use EPICS commands <code class="docutils literal notranslate"><span class="pre">caget</span></code> and <code class="docutils literal notranslate"><span class="pre">caput</span></code> to get and set the value; see the command
 useage by <cite>-h</cite> flag.</p>
 </div>
 <div class="section" id="gui">
 <h3>GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
 <a class="reference internal image-reference" href="_images/va_launcher.png"><img alt="_images/va_launcher.png" class="align-center" src="_images/va_launcher.png" style="width: 600px;" /></a>
-<p>Set the names of machine and segment as the user interface hints, as well as for other options.
+<p>Select the names of machine and segment, and other options that are available.
 The noise level and rep-rate could be also be easily adjusted through the UI controls.</p>
 </div>
 </div>
 <div class="section" id="scripting">
 <h2>Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h2>
-<p>This section shows how to communicate with the virtual accelerator, to get the machine status and
-control the machine through the API provided by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code>.</p>
-<p>To better present the data, it is recommended to do Python scripting in Jupyter-Notebook.
-<a class="reference internal" href="notebooks/va1.html#Online-Modeling"><span class="std std-ref">The linked notebook</span></a> shows how to work with virtual accelerator to do
-online simulation.</p>
+<p>This section shows how to use the API provide by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> to read and set the values in the OOP way.
+This allows one to use Python scripts to monitor the VA status and apply desired changes, and do online simulation.
+It is recommended to use Jupyter-Notebook, <a class="reference internal" href="notebooks/va1.html#Online-Modeling"><span class="std std-ref">the linked notebook</span></a> as shown here for an example.</p>
 </div>
 </div>
 
