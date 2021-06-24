@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'phantasy-doc'
-copyright = '2021, Tong Zhang, FRIB, Michigan State University, '
+copyright = '2021, Tong Zhang, FRIB, Michigan State University'
 author = 'Tong Zhang'
 
 # The full version, including alpha/beta/rc tags
@@ -62,4 +62,4 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_last_updated_fmt = '%I:%M %p, %b %d, %Y'
+html_last_updated_fmt = '%Y-%m-%dT%H:%M:%S %Z'
