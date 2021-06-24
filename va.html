@@ -251,8 +251,8 @@ $ git clone https://stash.frib.msu.edu/scm/phyapp/phantasy-machines.git -b devel
 </div>
 <div class="section" id="starting-virtual-accelerator">
 <h2>Starting Virtual Accelerator<a class="headerlink" href="#starting-virtual-accelerator" title="Permalink to this headline">¶</a></h2>
-<p>There are two ways (CLI and GUI) to start the VA. One is using the <code class="docutils literal notranslate"><span class="pre">flame-vastart</span></code> tool of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code>.
-The other is via the <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> HLA of <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
+<p>There are two ways, i.e. through command line interface (CLI) and graphical user interface (GUI) to start the VA.
+One is using the <code class="docutils literal notranslate"><span class="pre">flame-vastart</span></code> tool of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code>, the other is via the <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> HLA of <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
 <div class="section" id="cli">
 <h3>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
 <p>The following is the command line to use for the case of starting the VA for a beamline section referred to as ARIS/F1 (i.e. machine/segment):</p>
@@ -302,8 +302,10 @@ useage by <cite>-h</cite> flag.</p>
 </div>
 <div class="section" id="gui">
 <h3>GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
+<p>For development, one can execute <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> command in the Terminal to
+start the HLA for VA.</p>
 <a class="reference internal image-reference" href="_images/va_launcher.png"><img alt="_images/va_launcher.png" class="align-center" src="_images/va_launcher.png" style="width: 600px;" /></a>
-<p>Select the names of machine and segment, and other options that are available.
+<p>Select/edit the names of machine and segment, and other options that are available.
 The noise level and rep-rate could be also be easily adjusted through the UI controls.</p>
 </div>
 </div>
@@ -312,6 +314,8 @@ The noise level and rep-rate could be also be easily adjusted through the UI con
 <p>This section shows how to use the API provide by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> to read and set the values in the OOP way.
 This allows one to use Python scripts to monitor the VA status and apply desired changes, and do online simulation.
 It is recommended to use Jupyter-Notebook, <a class="reference internal" href="notebooks/va1.html#Online-Modeling"><span class="std std-ref">the linked notebook</span></a> as shown here for an example.</p>
+<p>Other <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> based HLAs also could work with the VA by connecting to
+the right machine/segment.</p>
 </div>
 </div>
 
@@ -331,7 +335,7 @@ It is recommended to use Jupyter-Notebook, <a class="reference internal" href="n
     <p>
         &#169; Copyright 2021, Tong Zhang, FRIB, Michigan State University.
       <span class="lastupdated">
-        Last updated on 2021-06-24T13:58:16 UTC.
+        Last updated on 2021-06-24T16:03:52 UTC.
       </span>
 
     </p>
