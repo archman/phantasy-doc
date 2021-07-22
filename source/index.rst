@@ -12,7 +12,7 @@ This is the documentation site for ``phantasy`` based software and application o
 .. toctree::
    :maxdepth: 2
    :caption: References
-   
+
    va
 
 .. toctree::
@@ -22,6 +22,11 @@ This is the documentation site for ``phantasy`` based software and application o
    notebooks/va1
    notebooks/optlat
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Slides
+
+   slides
 
 
 Indices and tables
