@@ -23,8 +23,8 @@ This is the documentation site for ``phantasy`` based software and application o
    notebooks/optlat
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Slides
+   :maxdepth: 1
+   :caption: Others
 
    slides
 
