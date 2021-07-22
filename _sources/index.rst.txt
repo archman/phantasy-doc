@@ -16,7 +16,7 @@ This is the documentation site for ``phantasy`` based software and application o
    va
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Notebooks
 
    notebooks/va1
