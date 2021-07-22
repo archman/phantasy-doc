@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>FLAME Model with Alignment Data slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>FLAME_Model_with_Alignment_Data slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14433,7 +14433,7 @@ div.jp-OutputPrompt {
 <h2 id="ARIS/F1-machine-configuration">ARIS/F1 machine configuration<a class="anchor-link" href="#ARIS/F1-machine-configuration">&#182;</a></h2><p>There're two ways to configure the alignment info:</p>
 <ol>
 <li>Set <em>alignment_file</em> in machine/segment definition file, e.g. <em>phantasy.ini</em>, to point to the filepath where the Excel data sheet of all the alignment data resides;</li>
-<li>[<strong>FLAME</strong>] Support overwrite alignment info by define the following arguments in the config file, e.g. <em>phantasy.cfg</em>, under each machine/segment configuration directory, use element name as the section name and the supported alignment argument definition, i.e. <em>align_dx</em>, "align_dy", <em>align_pitch</em>, <em>align_roll</em>, <em>align_yaw</em>;</li>
+<li>[<strong>Only for FLAME model</strong>] Support overwrite alignment info by define the following arguments in the config file, e.g. <em>phantasy.cfg</em>, under each machine/segment configuration directory, use element name as the section name and the supported alignment argument definition, i.e. <em>align_dx</em>, <em>align_dy</em>, <em>align_pitch</em>, <em>align_roll</em>, <em>align_yaw</em>;</li>
 <li>As of now, only FLAME model is supported.</li>
 </ol>
 
@@ -14543,18 +14543,18 @@ alignment_file = ./presp/ARIS_F1_misalignment_sheet_zeros.xlsx
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>[10:29:47.526] INFO: phantasy.library.operation.core: Load new machine: &#39;ARIS&#39;, segment: &#39;F1&#39;
-[10:29:47.528] INFO: phantasy.library.parser.config: Importing ARIS from /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS
-[10:29:47.529] INFO: phantasy.library.parser.config: Loading machine configuration from /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS/phantasy.ini
-[10:29:47.531] INFO: phantasy.library.operation.lattice: Loading segment: &#39;F1&#39;
-[10:29:47.536] WARNING: phantasy.library.operation.lattice: Default UNICORN policy will be applied.
-[10:29:47.558] INFO: phantasy.library.operation.lattice: Read alignment data from /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS/presp/ARIS_F1_misalignment_sheet_zeros.xlsx.
-[10:29:47.559] WARNING: phantasy.library.operation.lattice: Default device polarity will be applied.
-[10:29:47.561] INFO: phantasy.library.operation.lattice: Loading PV data from CSV/SQLite: /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS/presp/channels.csv
-[10:29:47.563] INFO: phantasy.library.pv.datasource: Set source to be CSV table: channels.csv.
-[10:29:47.586] INFO: phantasy.library.operation.lattice: Model data directory: /home/tong/phantasy_data/20210722/model_data/data_102947
-[10:29:47.591] INFO: phantasy.library.operation.lattice: Found 267 PVs in &#39;F1&#39;.
-[10:29:47.745] INFO: phantasy.library.operation.lattice: &#39;F1&#39; has 50 elements
+<pre>[11:19:09.274] INFO: phantasy.library.operation.core: Load new machine: &#39;ARIS&#39;, segment: &#39;F1&#39;
+[11:19:09.275] INFO: phantasy.library.parser.config: Importing ARIS from /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS
+[11:19:09.276] INFO: phantasy.library.parser.config: Loading machine configuration from /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS/phantasy.ini
+[11:19:09.277] INFO: phantasy.library.operation.lattice: Loading segment: &#39;F1&#39;
+[11:19:09.280] WARNING: phantasy.library.operation.lattice: Default UNICORN policy will be applied.
+[11:19:09.294] INFO: phantasy.library.operation.lattice: Read alignment data from /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS/presp/ARIS_F1_misalignment_sheet_zeros.xlsx.
+[11:19:09.296] WARNING: phantasy.library.operation.lattice: Default device polarity will be applied.
+[11:19:09.297] INFO: phantasy.library.operation.lattice: Loading PV data from CSV/SQLite: /home/tong/Dropbox/phantasy-project/phantasy-machines/ARIS/presp/channels.csv
+[11:19:09.298] INFO: phantasy.library.pv.datasource: Set source to be CSV table: channels.csv.
+[11:19:09.314] INFO: phantasy.library.operation.lattice: Model data directory: /home/tong/phantasy_data/20210722/model_data/data_111909
+[11:19:09.316] INFO: phantasy.library.operation.lattice: Found 267 PVs in &#39;F1&#39;.
+[11:19:09.449] INFO: phantasy.library.operation.lattice: &#39;F1&#39; has 50 elements
 </pre>
 </div>
 </div>
@@ -14563,7 +14563,7 @@ alignment_file = ./presp/ARIS_F1_misalignment_sheet_zeros.xlsx
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
@@ -14601,7 +14601,7 @@ alignment_file = ./presp/ARIS_F1_misalignment_sheet_zeros.xlsx
 
 </div>
 
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
@@ -14645,7 +14645,7 @@ Name: FS_F1S1:Q_D1013, dtype: object</pre>
 
 </div>
 
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
@@ -14762,14 +14762,14 @@ align_yaw: 0
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>[10:29:47.973] INFO: phantasy.library.lattice.flame: Alignment error: dx of FS_F1S1:Q_D1013 is 0.002 m.
-[10:29:47.979] INFO: phantasy.library.lattice.flame: Alignment error: dy of FS_F1S1:Q_D1013 is 0 m.
-[10:29:47.981] INFO: phantasy.library.lattice.flame: Alignment error: pitch of FS_F1S1:Q_D1013 is 0.5 deg.
-[10:29:47.989] INFO: phantasy.library.lattice.flame: Alignment error: roll of FS_F1S1:Q_D1013 is 0 deg.
-[10:29:47.992] INFO: phantasy.library.lattice.flame: Alignment error: yaw of FS_F1S1:Q_D1013 is 0 deg.
-[10:29:47.996] INFO: phantasy.library.lattice.flame: Load alignment error [  FS_F1S1:Q_D1013   ]: {&#39;dx&#39;: 0.002, &#39;dy&#39;: 0.0, &#39;pitch&#39;: 0.5, &#39;roll&#39;: 0.0, &#39;yaw&#39;: 0.0}
-[10:29:48.063] ERROR: flame_utils.core.model: expected str, bytes or os.PathLike object, not NoneType
-[10:29:48.065] WARNING: flame_utils.core.model: ModelFlame: Lattice file is not valid, do it manually.
+<pre>[11:19:09.606] INFO: phantasy.library.lattice.flame: Alignment error: dx of FS_F1S1:Q_D1013 is 0.002 m.
+[11:19:09.609] INFO: phantasy.library.lattice.flame: Alignment error: dy of FS_F1S1:Q_D1013 is 0 m.
+[11:19:09.610] INFO: phantasy.library.lattice.flame: Alignment error: pitch of FS_F1S1:Q_D1013 is 0.5 deg.
+[11:19:09.611] INFO: phantasy.library.lattice.flame: Alignment error: roll of FS_F1S1:Q_D1013 is 0 deg.
+[11:19:09.612] INFO: phantasy.library.lattice.flame: Alignment error: yaw of FS_F1S1:Q_D1013 is 0 deg.
+[11:19:09.612] INFO: phantasy.library.lattice.flame: Load alignment error [  FS_F1S1:Q_D1013   ]: {&#39;dx&#39;: 0.002, &#39;dy&#39;: 0.0, &#39;pitch&#39;: 0.5, &#39;roll&#39;: 0.0, &#39;yaw&#39;: 0.0}
+[11:19:09.631] ERROR: flame_utils.core.model: expected str, bytes or os.PathLike object, not NoneType
+[11:19:09.632] WARNING: flame_utils.core.model: ModelFlame: Lattice file is not valid, do it manually.
 </pre>
 </div>
 </div>
