@@ -4,8 +4,8 @@
    contain the root `toctree` directive.
 
 
-High-level Application Documentation
-====================================
+PHANTASY Documentation
+======================
 
 This is the documentation site for ``phantasy`` based software and application on accelerator.
 
