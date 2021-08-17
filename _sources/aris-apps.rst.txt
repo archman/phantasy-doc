@@ -17,8 +17,10 @@ are expected to run in the terminal:
 
 .. note::
    If you have defined ``PHANTASY_CONFIG_DIR`` environmental variable in
-   your ``~/.bashrc`` (see `this section <https://gitlab.msu.edu/zhangto71/aris-va-ellipse#start-aris-va>`_), you should first comment out that line, since this
+   your ``~/.bashrc`` (see `this section <https://gitlab.msu.edu/zhangto71/aris-va-ellipse#start-aris-va>`_),
+   you should first comment out that line, since this
    is only required if you are developing the machine configuration files.
+   DO NOT forget restart the Terminal.
 
    When doing system update, the package ``phantasy-machines`` has been
    upgraded, which includes all the developed configurations required by
