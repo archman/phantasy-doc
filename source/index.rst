@@ -23,6 +23,14 @@ This is the documentation site for ``phantasy`` based software and application o
    notebooks/optlat
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Applications
+
+   aris-apps
+
+
+
+.. toctree::
    :maxdepth: 1
    :caption: Others
 
