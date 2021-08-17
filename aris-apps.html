@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Search &mdash; phantasy-doc 0.0.1 documentation</title>
+  <title>ARIS Apps &mdash; phantasy-doc 0.0.1 documentation</title>
   
 
   
@@ -25,7 +25,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -41,10 +40,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="List of Slides" href="slides.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="notebooks/optlat.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -71,7 +70,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -94,8 +93,11 @@
 <li class="toctree-l1"><a class="reference internal" href="va.html">Virtual Accelerator</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applications</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="aris-apps.html">ARIS Apps</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ARIS Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#online-model-app">Online Model App</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
@@ -148,10 +150,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>ARIS Apps</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/aris-apps.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -163,23 +169,64 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
 
-  
-  <div id="search-results">
-  
-  </div>
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="aris-apps">
+<h1>ARIS Apps<a class="headerlink" href="#aris-apps" title="Permalink to this headline">¶</a></h1>
+<p>Applications developed for ARIS, but also work with other accelerator segments.</p>
+<div class="section" id="online-model-app">
+<h2>Online Model App<a class="headerlink" href="#online-model-app" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://gitlab.msu.edu/zhangto71/aris-va-ellipse">here</a> for the source repository. Below shows how to test it in you VirtualBox machine which
+should be running appliance <em>develop-vmphy0-v7</em> or <em>v8</em>, all the commands
+are expected to run in the terminal:</p>
+<ol class="arabic simple">
+<li><p>Do system update: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">upgrade</span></code></p></li>
+<li><p>Install the package <em>aris-apps</em> via pip: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">aris-apps</span> <span class="pre">-U</span></code></p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">online_model</span></code> to start up the app.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have defined <code class="docutils literal notranslate"><span class="pre">PHANTASY_CONFIG_DIR</span></code> environmental variable in
+your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> (see <a class="reference external" href="https://gitlab.msu.edu/zhangto71/aris-va-ellipse#start-aris-va">this section</a>), you should first comment out that line, since this
+is only required if you are developing the machine configuration files.</p>
+<p>When doing system update, the package <code class="docutils literal notranslate"><span class="pre">phantasy-machines</span></code> has been
+upgraded, which includes all the developed configurations required by
+this online model application.</p>
+</div>
+</div>
+</div>
+
 
            </div>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="slides.html" class="btn btn-neutral float-right" title="List of Slides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="notebooks/optlat.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
@@ -219,14 +266,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
