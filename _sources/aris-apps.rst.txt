@@ -17,15 +17,16 @@ are expected to run in the terminal:
 
 .. note::
    If you have defined ``PHANTASY_CONFIG_DIR`` environmental variable in
-   your ``~/.bashrc`` (see `this section <https://gitlab.msu.edu/zhangto71/aris-va-ellipse#start-aris-va>`_),
-   you should first comment out that line, since this
+   your ``~/.bashrc``
+   (see `this section <https://gitlab.msu.edu/zhangto71/aris-va-ellipse#start-aris-va>`_),
+   you'll have to comment out that line, since that
    is only required if you are developing the machine configuration files.
-   DO NOT forget restart the Terminal.
+   DO NOT forget to restart the Terminal after changing the .bashrc file.
 
-   When doing system update, the package ``phantasy-machines`` has been
-   upgraded, which includes all the developed configurations required by
+   When doing system update, the package ``phantasy-machines`` and other required packages have
+   been upgraded, which includes all the developed configurations required by
    this online model application.
 
-   If ``online_model`` cannot be found, input the full path, i.e.
-   ``/usr/local/bin/online_model``, or the best fix is add ``/usr/local/bin`` to you ``PATH``
-   in ``~/.bashrc``.
+   If the command ``online_model`` cannot be found, input the full path, i.e.
+   ``/usr/local/bin/online_model``, or the best fix would be adding ``/usr/local/bin``
+   to you ``PATH`` in ``~/.bashrc`` (refer to the definition inside of .bashrc file).
