@@ -23,3 +23,7 @@ are expected to run in the terminal:
    When doing system update, the package ``phantasy-machines`` has been
    upgraded, which includes all the developed configurations required by
    this online model application.
+
+   If ``online_model`` cannot be found, input the full path, i.e.
+   ``/usr/local/bin/online_model``, or the best fix is add ``/usr/local/bin`` to you ``PATH``
+   in ``~/.bashrc``.
