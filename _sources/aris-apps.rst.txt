@@ -30,3 +30,8 @@ are expected to run in the terminal:
    If the command ``online_model`` cannot be found, input the full path, i.e.
    ``/usr/local/bin/online_model``, or the best fix would be adding ``/usr/local/bin``
    to you ``PATH`` in ``~/.bashrc`` (refer to the definition inside of .bashrc file).
+
+.. note::
+   Be sure to have a virtual accelerator running when testing this app, which could be started by
+   executing command ``va_launcher`` in the terminal, and select machine/segment as *ARIS_VA/F1*
+   to start, see :ref:`va-ref-label`.
