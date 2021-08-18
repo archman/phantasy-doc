@@ -1,3 +1,5 @@
+.. _va-ref-label:
+
 ===================
 Virtual Accelerator
 ===================
