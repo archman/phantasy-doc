@@ -12,8 +12,14 @@ should be running appliance *develop-vmphy0-v7* or *v8*, all the commands
 are expected to run in the terminal:
 
 1. Do system update: ``sudo apt update && sudo apt upgrade``
-2. Install the package *aris-apps* via pip: ``sudo pip3 install aris-apps -U``
-3. Type ``online_model`` to start up the app.
+2. Install all these required packages::
+
+    sudo apt install python3-phantasy phantasy-machines \
+                     python3-phantasy-ui python3-phantasy-apps \
+                     python3-mpl4qt python3-unicorn
+
+3. Install the package *aris-apps* via pip: ``sudo pip3 install aris-apps -U``
+4. Type ``online_model`` to start up the app.
 
 .. note::
    If you have defined ``PHANTASY_CONFIG_DIR`` environmental variable in
