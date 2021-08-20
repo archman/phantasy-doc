@@ -201,12 +201,18 @@
 <p>See <a class="reference external" href="https://gitlab.msu.edu/zhangto71/aris-va-ellipse">here</a> for the source repository. Below shows how to test it in you VirtualBox machine which
 should be running appliance <em>develop-vmphy0-v7</em> or <em>v8</em>, all the commands
 are expected to run in the terminal:</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Do system update: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">upgrade</span></code></p></li>
-<li><p>Install all these required packages: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-phantasy</span> <span class="pre">python3-phantasy-apps</span> <span class="pre">python3-phantasy-ui</span> <span class="pre">phantasy-machines</span> <span class="pre">python3-mpl4qt</span> <span class="pre">python3-unicorn</span></code></p></li>
+<li><p>Install all these required packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">phantasy</span> <span class="n">phantasy</span><span class="o">-</span><span class="n">machines</span> \
+                 <span class="n">python3</span><span class="o">-</span><span class="n">phantasy</span><span class="o">-</span><span class="n">ui</span> <span class="n">python3</span><span class="o">-</span><span class="n">phantasy</span><span class="o">-</span><span class="n">apps</span> \
+                 <span class="n">python3</span><span class="o">-</span><span class="n">mpl4qt</span> <span class="n">python3</span><span class="o">-</span><span class="n">unicorn</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install the package <em>aris-apps</em> via pip: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">aris-apps</span> <span class="pre">-U</span></code></p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">online_model</span></code> to start up the app.</p></li>
 </ol>
-<p>3. Install the package <em>aris-apps</em> via pip: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">aris-apps</span> <span class="pre">-U</span></code>
-3. Type <code class="docutils literal notranslate"><span class="pre">online_model</span></code> to start up the app.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you have defined <code class="docutils literal notranslate"><span class="pre">PHANTASY_CONFIG_DIR</span></code> environmental variable in
@@ -247,7 +253,7 @@ to start, see <a class="reference internal" href="va.html#va-ref-label"><span cl
     <p>
         &#169; Copyright 2021, Tong Zhang, FRIB, Michigan State University.
       <span class="lastupdated">
-        Last updated on 2021-08-20T18:19:20 UTC.
+        Last updated on 2021-08-20T18:25:25 UTC.
       </span>
 
     </p>
