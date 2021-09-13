@@ -4,29 +4,33 @@
 Quantity Interpretation
 =======================
 
-This page explains how ``phantasy`` manages the physics quantity in terms of
-*unit*. Usually, the device is controlled by applying proper voltage or
+This page explains how the physics quantity in terms of
+*unit* is managed in the high-level physics controls.
+
+Usually, the device is controlled by applying proper voltage or
 current, which the value set out from the control variable (or Process
 Variable in EPICS) is in the unit of *Voltage* [A] or *Ampere* [A]
-(which is indicated in the EGU channel). From the physics modeling perspective,
-it is always expecting that the
+(which is indicated in the EGU channel).
+
+From the physics modeling perspective, it is always expecting that the
 values are presented in the way that modeling tools can directly use them,
 that is interpreting the EGU values in other *units*, e.g. interpreting
 current in Ampere to a magnetic field in Tesla for dipole, current to a
 magnetic gradient in T/m for quadrupole, etc., and vice-versa.
+
 Considering the use-cases of interpreting the EGU to various physics units,
 the software design for the data management is split into three parts:
 
-+ Dedicated web app to present and serve the data.
-+ Dedicated Python client to retrieve the data.
-+ PHANTASY libraries to intergrate the data for easy access.
+* Dedicated web app to present and serve the data.
+* Dedicated Python client to retrieve the data.
+* PHANTASY libraries to intergrate the data for easy access.
 
 As such, three different projects are created:
 
-+ *unicorn-webapp*: a web application could be started with ``unicorn_app``
+* *unicorn-webapp*: a web application could be started with ``unicorn_app``
   command, which is provided by ``phantasy-apps``.
-+ *unicorn*: a Python package for data communication with ``unicorn-webapp``.
-+ APIs bound with ``CaElement`` of PHANTASY for easy access to these data.
+* *unicorn*: a Python package for data communication with ``unicorn-webapp``.
+* APIs bound with ``CaElement`` of PHANTASY for easy access to these data.
 
 
 UNICORN Web App
