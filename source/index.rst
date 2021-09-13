@@ -14,6 +14,7 @@ This is the documentation site for ``phantasy`` based software and application o
    :caption: References
 
    va
+   un
 
 .. toctree::
    :maxdepth: 1
