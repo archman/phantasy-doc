@@ -199,17 +199,18 @@
 </style>
 <section id="quantity-interpretation">
 <span id="un-ref-label"></span><h1>Quantity Interpretation<a class="headerlink" href="#quantity-interpretation" title="Permalink to this headline">¶</a></h1>
-<p>This page explains how <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> manages the physics quantity in terms of
-<em>unit</em>. Usually, the device is controlled by applying proper voltage or
+<p>This page explains how the physics quantity in terms of
+<em>unit</em> is managed in the high-level physics controls.</p>
+<p>Usually, the device is controlled by applying proper voltage or
 current, which the value set out from the control variable (or Process
 Variable in EPICS) is in the unit of <em>Voltage</em> [A] or <em>Ampere</em> [A]
-(which is indicated in the EGU channel). From the physics modeling perspective,
-it is always expecting that the
+(which is indicated in the EGU channel).</p>
+<p>From the physics modeling perspective, it is always expecting that the
 values are presented in the way that modeling tools can directly use them,
 that is interpreting the EGU values in other <em>units</em>, e.g. interpreting
 current in Ampere to a magnetic field in Tesla for dipole, current to a
-magnetic gradient in T/m for quadrupole, etc., and vice-versa.
-Considering the use-cases of interpreting the EGU to various physics units,
+magnetic gradient in T/m for quadrupole, etc., and vice-versa.</p>
+<p>Considering the use-cases of interpreting the EGU to various physics units,
 the software design for the data management is split into three parts:</p>
 <ul class="simple">
 <li><p>Dedicated web app to present and serve the data.</p></li>
@@ -287,7 +288,7 @@ will set the device to the desired value in terms of the field which is being wo
         
         &copy; Copyright 2021, Tong Zhang, FRIB, Michigan State University
       <span class="lastupdated">
-        Last updated on 2021-09-13T20:16:21 UTC.
+        Last updated on 2021-09-13T20:41:09 UTC.
       </span>
 
     </p>
