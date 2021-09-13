@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quantity Interpretation &mdash; phantasy-doc 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Online Modeling" href="notebooks/va1.html" />
+    <link rel="prev" title="Virtual Accelerator" href="va.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> phantasy-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="va.html">Virtual Accelerator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quantity Interpretation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#unicorn-web-app">UNICORN Web App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-unicorn">Python UNICORN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phantasy-integration">PHANTASY Integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/va1.html">Online Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/optlat.html">Optimize FLAME lattice</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Applications</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aris-apps.html">ARIS Apps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Others</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="slides.html">List of Slides</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">phantasy-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Quantity Interpretation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/un.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="quantity-interpretation">
+<span id="un-ref-label"></span><h1>Quantity Interpretation<a class="headerlink" href="#quantity-interpretation" title="Permalink to this headline">¶</a></h1>
+<p>This page explains how <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> manages the physics quantity in terms of
+<em>unit</em>. Usually, the device is controlled by applying proper voltage or
+current, which the value set out from the control variable (or Process
+Variable in EPICS) is in the unit of <em>Voltage</em> [A] or <em>Ampere</em> [A]
+(which is indicated in the EGU channel). From the physics modeling perspective,
+it is always expecting that the
+values are presented in the way that modeling tools can directly use them,
+that is interpreting the EGU values in other <em>units</em>, e.g. interpreting
+current in Ampere to a magnetic field in Tesla for dipole, current to a
+magnetic gradient in T/m for quadrupole, etc., and vice-versa.
+Considering the use-cases of interpreting the EGU to various physics units,
+the software design for the data management is split into three parts:</p>
+<ul class="simple">
+<li><p>Dedicated web app to present and serve the data.</p></li>
+<li><p>Dedicated Python client to retrieve the data.</p></li>
+<li><p>PHANTASY libraries to intergrate the data for easy access.</p></li>
+</ul>
+<p>As such, three different projects are created:</p>
+<ul class="simple">
+<li><p><em>unicorn-webapp</em>: a web application could be started with <code class="docutils literal notranslate"><span class="pre">unicorn_app</span></code>
+command, which is provided by <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p></li>
+<li><p><em>unicorn</em>: a Python package for data communication with <code class="docutils literal notranslate"><span class="pre">unicorn-webapp</span></code>.</p></li>
+<li><p>APIs bound with <code class="docutils literal notranslate"><span class="pre">CaElement</span></code> of PHANTASY for easy access to these data.</p></li>
+</ul>
+<section id="unicorn-web-app">
+<h2>UNICORN Web App<a class="headerlink" href="#unicorn-web-app" title="Permalink to this headline">¶</a></h2>
+<p>First off, install <code class="docutils literal notranslate"><span class="pre">unicorn-webapp</span></code> via apt-get: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">unicorn-webapp</span></code>.
+The way to start up UNICORN web app is executing command <code class="docutils literal notranslate"><span class="pre">unicorn_app</span></code>
+in Terminal. You may get the “Internal Server Error” shown as below:</p>
+<a class="reference internal image-reference" href="_images/un_error.png"><img alt="_images/un_error.png" class="align-center" src="_images/un_error.png" style="width: 600px;" /></a>
+<p>Which could be fixed by Edit -&gt; Preferences -&gt; Database -&gt; Reset to Default.</p>
+<a class="reference internal image-reference" href="_images/un_error_fix.png"><img alt="_images/un_error_fix.png" class="align-center" src="_images/un_error_fix.png" style="width: 600px;" /></a>
+<p>You’ll see the page for <em>functions</em> (click <strong>Functions</strong> tab), each one is named with <em>Device name*_*field-1*_to_*field-2</em>,
+to interpret the value in the unit of <em>field-1</em> to the value for <em>field-2</em>.</p>
+<a class="reference internal image-reference" href="_images/un_web_01.png"><img alt="_images/un_web_01.png" class="align-center" src="_images/un_web_01.png" style="width: 600px;" /></a>
+<p>In the search box, type <em>FS</em> to list only pre-separator devices.</p>
+<a class="reference internal image-reference" href="_images/un_web_02.png"><img alt="_images/un_web_02.png" class="align-center" src="_images/un_web_02.png" style="width: 600px;" /></a>
+<p>Clicking each function name will direct you to the data page, e.g. the screenshot
+below shows the I/B2 relation for FS_F1S1:Q_D1013 device, <em>Execution</em> line supports simple
+value calculation.</p>
+<a class="reference internal image-reference" href="_images/un_web_03.png"><img alt="_images/un_web_03.png" class="align-center" src="_images/un_web_03.png" style="width: 600px;" /></a>
+</section>
+<section id="python-unicorn">
+<h2>Python UNICORN<a class="headerlink" href="#python-unicorn" title="Permalink to this headline">¶</a></h2>
+<p>Once the unicorn-webapp is running, there’s another way to get data in Python terminal, by using
+<code class="docutils literal notranslate"><span class="pre">unicorn</span></code> package.</p>
+<a class="reference internal image-reference" href="_images/un_api_01.png"><img alt="_images/un_api_01.png" class="align-center" src="_images/un_api_01.png" style="width: 600px;" /></a>
+<p>See more details on <em>Help</em> tab of unicorn web app for Python API usage.</p>
+</section>
+<section id="phantasy-integration">
+<h2>PHANTASY Integration<a class="headerlink" href="#phantasy-integration" title="Permalink to this headline">¶</a></h2>
+<p>As one can see, the above sections solve the units issue for the data value interpretation
+in different use-cases. For even easier and robust access to all these data,
+dedicated libraries have been developed to integrate this info into <em>phantasy</em>.</p>
+<p>In this scenario, no unicorn web app is needed to run in the background, all the data is served by
+proper configuration keys.</p>
+<p>The screenshot below shows how to convert the input field to another, e.g. I to B, one can access
+<em>I</em> and <em>B</em> through dot syntax, i.e. <code class="docutils literal notranslate"><span class="pre">elem.I</span></code> and <code class="docutils literal notranslate"><span class="pre">elem.B</span></code>, either one will return the current
+readback of the device in terms of the current or magnetic field. <em>.convert()</em> function does only
+calculation, no real device controls are involved. <code class="docutils literal notranslate"><span class="pre">elem.I</span> <span class="pre">=</span> <span class="pre">&lt;new</span> <span class="pre">I&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">elem.B</span> <span class="pre">=</span> <span class="pre">&lt;new</span> <span class="pre">B&gt;</span></code>
+will set the device to the desired value in terms of the field which is being worked on.</p>
+<a class="reference internal image-reference" href="_images/un_phantasy.png"><img alt="_images/un_phantasy.png" class="align-center" src="_images/un_phantasy.png" style="width: 600px;" /></a>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="notebooks/va1.html" class="btn btn-neutral float-right" title="Online Modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="va.html" class="btn btn-neutral float-left" title="Virtual Accelerator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Tong Zhang, FRIB, Michigan State University
+      <span class="lastupdated">
+        Last updated on 2021-09-13T20:16:21 UTC.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
