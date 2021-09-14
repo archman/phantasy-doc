@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Virtual Accelerator &mdash; phantasy-doc 0.0.1 documentation</title>
@@ -205,7 +204,7 @@
     text-align: unset;
 }
 </style>
-<section id="virtual-accelerator">
+<div class="section" id="virtual-accelerator">
 <span id="va-ref-label"></span><h1>Virtual Accelerator<a class="headerlink" href="#virtual-accelerator" title="Permalink to this headline">¶</a></h1>
 <p>The virtual accelerator (VA) application is driven by the framework <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> using a set of configuration files,
 which describe the accelerator beamline layout, controls process variables
@@ -215,11 +214,11 @@ used to establish EPICS IOC environment, and nominal device settings.</p>
 accelerator in any Python terminal, e.g. Jupyter-Notebook, to investigate and control the machine, such as by
 build tuning algorithms. <code class="docutils literal notranslate"><span class="pre">phantasy-ui</span></code>, together with <code class="docutils literal notranslate"><span class="pre">mpl4qt</span></code>, provide useful templates and
 libraries for efficient development of high-level applications (HLAs).</p>
-<section id="how-to-set-up">
+<div class="section" id="how-to-set-up">
 <h2>How to Set Up<a class="headerlink" href="#how-to-set-up" title="Permalink to this headline">¶</a></h2>
 <p>What follows is a description for setting up the system environment for developing
 VA configuration files. Currently, FLAME is the supported simulation engine.</p>
-<section id="installing-phantasy">
+<div class="section" id="installing-phantasy">
 <h3>Installing PHANTASY<a class="headerlink" href="#installing-phantasy" title="Permalink to this headline">¶</a></h3>
 <p>Install or update <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> in your VirtualBox. It should already be installed on appliance version v7 or later (e.g. develop-vmph0-v7).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
@@ -230,8 +229,8 @@ sudo apt install phantasy-machines
 <p>If already installed, it is recommended to do an update via <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">upgrade</span></code>.</p>
 <p>As the package names imply, the distribution of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> includes both framework software and
 the ready-to-use HLAs. The distributed machine configuration files make HLAs machine agnostic.</p>
-</section>
-<section id="configuration-files">
+</div>
+<div class="section" id="configuration-files">
 <h3>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
 <p>The default machine configuration files are installed at directory  <cite>/usr/lib/phantasy-machines</cite>.
 Pointing to user-customized locations is supported for local development.</p>
@@ -253,13 +252,13 @@ $ git clone https://stash.frib.msu.edu/scm/phyapp/phantasy-machines.git -b devel
 </pre></div>
 </div>
 <p>All changes within the directory <cite>/home/devuser/phantasy-machines</cite> should then be tested.</p>
-</section>
-</section>
-<section id="starting-virtual-accelerator">
+</div>
+</div>
+<div class="section" id="starting-virtual-accelerator">
 <h2>Starting Virtual Accelerator<a class="headerlink" href="#starting-virtual-accelerator" title="Permalink to this headline">¶</a></h2>
 <p>There are two ways, i.e. through command line interface (CLI) and graphical user interface (GUI) to start the VA.
 One is using the <code class="docutils literal notranslate"><span class="pre">flame-vastart</span></code> tool of <code class="docutils literal notranslate"><span class="pre">phantasy</span></code>, the other is via the <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> HLA of <code class="docutils literal notranslate"><span class="pre">phantasy-apps</span></code>.</p>
-<section id="cli">
+<div class="section" id="cli">
 <h3>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
 <p>The following is the command line to use for the case of starting the VA for a beamline section referred to as ARIS/F1 (i.e. machine/segment):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ phytool flame-vastart --mach ARIS --subm F1
@@ -305,25 +304,25 @@ optional arguments:
 then default PV names for noise and rep-rate is <code class="docutils literal notranslate"><span class="pre">VA:SVR:NOISE</span></code> and <code class="docutils literal notranslate"><span class="pre">VA:SVR:RATE</span></code>, respectively.
 One can use EPICS commands <code class="docutils literal notranslate"><span class="pre">caget</span></code> and <code class="docutils literal notranslate"><span class="pre">caput</span></code> to get and set the value; see the command
 useage by <cite>-h</cite> flag.</p>
-</section>
-<section id="gui">
+</div>
+<div class="section" id="gui">
 <h3>GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
 <p>For development, one can execute <code class="docutils literal notranslate"><span class="pre">va_launcher</span></code> command in the Terminal to
 start the HLA for VA.</p>
 <a class="reference internal image-reference" href="_images/va_launcher.png"><img alt="_images/va_launcher.png" class="align-center" src="_images/va_launcher.png" style="width: 600px;" /></a>
 <p>Select/edit the names of machine and segment, and other options that are available.
 The noise level and rep-rate could also be easily adjusted through the UI controls.</p>
-</section>
-</section>
-<section id="scripting">
+</div>
+</div>
+<div class="section" id="scripting">
 <h2>Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h2>
 <p>This section shows how to use the API provide by <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> to read and set the values in the OOP way.
 This allows one to use Python scripts to monitor the VA status and apply desired changes, and do online simulation.
 It is recommended to use Jupyter-Notebook, <a class="reference internal" href="notebooks/va1.html#Online-Modeling"><span class="std std-ref">the linked notebook</span></a> as shown here for an example.</p>
 <p>Other <code class="docutils literal notranslate"><span class="pre">phantasy</span></code> based HLAs also could work with the VA by connecting to
 the right machine/segment.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -348,7 +347,7 @@ the right machine/segment.</p>
         
         &copy; Copyright 2021, Tong Zhang, FRIB, Michigan State University
       <span class="lastupdated">
-        Last updated on 2021-09-13T20:41:09 UTC.
+        Last updated on 2021-09-14T12:36:02 UTC.
       </span>
 
     </p>
