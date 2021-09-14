@@ -199,7 +199,7 @@
 <p>Applications developed for ARIS, but also work with other accelerator segments.</p>
 <div class="section" id="online-model-app">
 <h2>Online Model App<a class="headerlink" href="#online-model-app" title="Permalink to this headline">¶</a></h2>
-<p>See <a class="reference external" href="https://gitlab.msu.edu/zhangto71/aris-va-ellipse">here</a> for the source repository. Below shows how to test it in you VirtualBox machine which
+<p>See <a class="reference external" href="https://github.com/archman/aris-apps">here</a> for the source repository. Below shows how to test it in you VirtualBox machine which
 should be running appliance <em>develop-vmphy0-v7</em> or <em>v8</em>, all the commands
 are expected to run in the terminal:</p>
 <ol class="arabic">
@@ -211,7 +211,7 @@ are expected to run in the terminal:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Install the package <em>aris-apps</em> via pip: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">aris-apps</span> <span class="pre">-U</span></code></p></li>
+<li><p>Install the package <em>aris-apps</em> via pip: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">aris-apps</span> <span class="pre">-U</span></code>, now (2021-09-14) it’s also available through apt: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-aris-apps</span></code></p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">online_model</span></code> to start up the app.</p></li>
 </ol>
 <div class="admonition note">
@@ -225,7 +225,7 @@ DO NOT forget to restart the Terminal after changing the .bashrc file.</p>
 <p>When doing system update, the package <code class="docutils literal notranslate"><span class="pre">phantasy-machines</span></code> and other required packages have
 been upgraded, which includes all the developed configurations required by
 this online model application.</p>
-<p>If the command <code class="docutils literal notranslate"><span class="pre">online_model</span></code> cannot be found, input the full path, i.e.
+<p>If the command <code class="docutils literal notranslate"><span class="pre">online_model</span></code> cannot be found (only for the case of installing via <code class="docutils literal notranslate"><span class="pre">pip</span></code>), input the full path, i.e.
 <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/online_model</span></code>, or the best fix would be adding <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>
 to you <code class="docutils literal notranslate"><span class="pre">PATH</span></code> in <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> (refer to the definition inside of .bashrc file).</p>
 </div>
@@ -261,7 +261,7 @@ to start, see <a class="reference internal" href="va.html#va-ref-label"><span cl
         
         &copy; Copyright 2021, Tong Zhang, FRIB, Michigan State University
       <span class="lastupdated">
-        Last updated on 2021-09-14T12:36:02 UTC.
+        Last updated on 2021-09-14T13:04:00 UTC.
       </span>
 
     </p>
