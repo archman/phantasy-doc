@@ -35,6 +35,7 @@ extensions = [
     'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
     'sphinx.ext.autosectionlabel',
+    'sphinx.ext.mathjax',
 ]
 
 # nbsphinx config
