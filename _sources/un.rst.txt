@@ -94,10 +94,16 @@ proper configuration keys.
 
 The screenshot below shows how to convert the input field to another, e.g. I to B, one can access
 *I* and *B* through dot syntax, i.e. ``elem.I`` and ``elem.B``, either one will return the current
-readback of the device in terms of the current or magnetic field. *.convert()* function does only
+readback of the device in terms of the current or magnetic field. ``.convert()`` function does only
 calculation, no real device controls are involved. ``elem.I = <new I>`` or ``elem.B = <new B>``
 will set the device to the desired value in terms of the field which is being worked on.
 
 .. image:: ./images/un_phantasy.png
     :align: center
     :width: 600px
+
+.. note::
+
+    For all ARIS devices, the functions connecting two fields are assuming
+    odd functions, i.e. :math:`f(x)=-f(-x)`, so ``elem.convert(x, 'I')``
+    returns ``-elem.convert(-x, 'I')``.
