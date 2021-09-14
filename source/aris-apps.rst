@@ -7,7 +7,7 @@ Applications developed for ARIS, but also work with other accelerator segments.
 Online Model App
 ----------------
 
-See `here <https://gitlab.msu.edu/zhangto71/aris-va-ellipse>`_ for the source repository. Below shows how to test it in you VirtualBox machine which
+See `here <https://github.com/archman/aris-apps>`_ for the source repository. Below shows how to test it in you VirtualBox machine which
 should be running appliance *develop-vmphy0-v7* or *v8*, all the commands
 are expected to run in the terminal:
 
@@ -18,7 +18,7 @@ are expected to run in the terminal:
                      python3-phantasy-ui python3-phantasy-apps \
                      python3-mpl4qt python3-unicorn
 
-3. Install the package *aris-apps* via pip: ``sudo pip3 install aris-apps -U``
+3. Install the package *aris-apps* via pip: ``sudo pip3 install aris-apps -U``, now (2021-09-14) it's also available through apt: ``sudo apt install python3-aris-apps``
 4. Type ``online_model`` to start up the app.
 
 .. note::
@@ -33,7 +33,7 @@ are expected to run in the terminal:
    been upgraded, which includes all the developed configurations required by
    this online model application.
 
-   If the command ``online_model`` cannot be found, input the full path, i.e.
+   If the command ``online_model`` cannot be found (only for the case of installing via ``pip``), input the full path, i.e.
    ``/usr/local/bin/online_model``, or the best fix would be adding ``/usr/local/bin``
    to you ``PATH`` in ``~/.bashrc`` (refer to the definition inside of .bashrc file).
 
