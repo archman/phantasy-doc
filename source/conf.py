@@ -23,6 +23,7 @@ copyright = '2021, Tong Zhang, FRIB, Michigan State University'
 author = 'Tong Zhang'
 
 # The full version, including alpha/beta/rc tags
+version = '0.0.1'
 release = '0.0.1'
 
 
