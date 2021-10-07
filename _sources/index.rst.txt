@@ -8,6 +8,11 @@ PHANTASY Documentation
 ======================
 
 This is the documentation site for ``phantasy`` based software and application on accelerator.
+See |phantasy-pages| for the documentation for ``phantasy`` software framework itself.
+
+.. |phantasy-pages| raw:: html
+    
+    <a href="https://archman.gitlab.io/phantasy-pages/" target="_blank">HERE</a>
 
 .. toctree::
    :maxdepth: 2
